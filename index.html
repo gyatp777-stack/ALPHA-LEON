@@ -3,127 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALPHA</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<title>ALPHA PRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body {margin:0;font-family:'Montserrat',sans-serif;background:#0b0b0b;color:white;}
-header {display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#111;}
-header h1 {color:#ff2a2a;font-size:26px;}
-nav a {color:white;margin:0 10px;text-decoration:none;font-size:14px;}
-.hero {padding:60px 30px;background:linear-gradient(180deg,#1a0000,#000);}
-.hero h2 {color:#ff2a2a;font-size:32px;}
-.section {padding:30px;}
-.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-.card {background:#121212;border-radius:12px;overflow:hidden;}
-.card iframe {width:100%;height:180px;border:none;}
-.card-content {padding:15px;}
-.card h3 {margin:0;color:#ff2a2a;}
-.badge {display:inline-block;background:#ff2a2a;padding:3px 8px;font-size:12px;border-radius:4px;margin-bottom:8px;}
-button {width:100%;margin-top:10px;padding:10px;border:none;background:#ff2a2a;color:white;border-radius:6px;cursor:pointer;}
-.timer {text-align:center;margin-top:8px;font-size:14px;}
-.completed {outline:2px solid #00ff88;}
-footer {text-align:center;padding:20px;background:#111;color:#aaa;}
+body{margin:0;font-family:'Montserrat',sans-serif;background:#0a0a0a;color:#fff}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px 25px;background:#111;border-bottom:1px solid #222}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{width:40px}
+.logo span{font-weight:900;color:#ff2a2a}
+nav a{color:#ccc;margin:0 10px;text-decoration:none}
+.hero{padding:50px 25px;background:linear-gradient(180deg,#1a0000,#000)}
+.hero h2{color:#ff2a2a}
+.section{padding:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}
+.card{background:#121212;border-radius:10px;overflow:hidden}
+.card iframe{width:100%;height:160px}
+.card-content{padding:12px}
+.badge{background:#ff2a2a;padding:3px 6px;font-size:11px;border-radius:4px}
+button{width:100%;margin-top:8px;padding:8px;border:none;background:#ff2a2a;color:#fff;border-radius:5px}
+.completed{outline:2px solid #00ff88}
+.progressbar{background:#222;height:10px;border-radius:10px;overflow:hidden;margin:10px 0}
+.progress{height:10px;background:#00ff88;width:0%}
+.login{position:fixed;top:0;left:0;width:100%;height:100%;background:#000c;display:flex;justify-content:center;align-items:center}
+.login-box{background:#111;padding:20px;border-radius:10px}
 </style>
 </head>
 <body>
 
+<div class="login" id="login">
+<div class="login-box">
+<h3>Login</h3>
+<input id="user" placeholder="User"><br><br>
+<button onclick="login()">Enter</button>
+</div>
+</div>
+
 <header>
-<h1>ALPHA</h1>
+<div class="logo">
+<img src="https://cdn-icons-png.flaticon.com/512/616/616412.png">
+<span>ALPHA</span>
+</div>
 <nav>
-<a href="#home">Home</a>
-<a href="#homework">Home</a>
+<a href="#push">Push</a>
+<a href="#pull">Pull</a>
+<a href="#legs">Legs</a>
 <a href="#gym">Gym</a>
 </nav>
 </header>
 
-<section class="hero" id="home">
-<h2>Full Body Training</h2>
-<p>Clean. Powerful. Focused.</p>
+<section class="hero">
+<h2>Full System Training</h2>
+<div class="progressbar"><div class="progress" id="progress"></div></div>
+<p id="percent">0% complete</p>
 </section>
 
-<section class="section" id="homework">
-<h2>Home Workout</h2>
+<section class="section" id="push">
+<h2>Push (Chest / Triceps)</h2>
 <div class="grid">
+<div class="card" id="p1"><iframe src="https://www.youtube.com/embed/IODxDxX7oi4"></iframe><div class="card-content"><span class="badge">Push</span><h3>Push Ups</h3><button onclick="done('p1')">Done</button></div></div>
+<div class="card" id="p2"><iframe src="https://www.youtube.com/embed/0pkjOk0EiAk"></iframe><div class="card-content"><span class="badge">Push</span><h3>Dips</h3><button onclick="done('p2')">Done</button></div></div>
+</div>
+</section>
 
-<div class="card" id="h1">
-<iframe src="https://www.youtube.com/embed/IODxDxX7oi4"></iframe>
-<div class="card-content">
-<span class="badge">Chest</span>
-<h3>Push Ups</h3>
-<button onclick="timer('h1',30)">Start</button>
-<div class="timer" id="t-h1"></div>
-<button onclick="done('h1')">Complete</button>
+<section class="section" id="pull">
+<h2>Pull (Back / Biceps)</h2>
+<div class="grid">
+<div class="card" id="pl1"><iframe src="https://www.youtube.com/embed/eGo4IYlbE5g"></iframe><div class="card-content"><span class="badge">Pull</span><h3>Pull Ups</h3><button onclick="done('pl1')">Done</button></div></div>
 </div>
-</div>
+</section>
 
-<div class="card" id="h2">
-<iframe src="https://www.youtube.com/embed/pSHjTRCQxIw"></iframe>
-<div class="card-content">
-<span class="badge">Core</span>
-<h3>Plank</h3>
-<button onclick="timer('h2',30)">Start</button>
-<div class="timer" id="t-h2"></div>
-<button onclick="done('h2')">Complete</button>
-</div>
-</div>
-
+<section class="section" id="legs">
+<h2>Legs</h2>
+<div class="grid">
+<div class="card" id="l1"><iframe src="https://www.youtube.com/embed/aclHkVaku9U"></iframe><div class="card-content"><span class="badge">Legs</span><h3>Squats</h3><button onclick="done('l1')">Done</button></div></div>
 </div>
 </section>
 
 <section class="section" id="gym">
-<h2>Gym Workout</h2>
+<h2>Gym Full Body</h2>
 <div class="grid">
-
-<div class="card" id="g1">
-<iframe src="https://www.youtube.com/embed/gRVjAtPip0Y"></iframe>
-<div class="card-content">
-<span class="badge">Chest</span>
-<h3>Bench Press</h3>
-<button onclick="timer('g1',40)">Start</button>
-<div class="timer" id="t-g1"></div>
-<button onclick="done('g1')">Complete</button>
-</div>
-</div>
-
-<div class="card" id="g2">
-<iframe src="https://www.youtube.com/embed/op9kVnSso6Q"></iframe>
-<div class="card-content">
-<span class="badge">Full Body</span>
-<h3>Deadlift</h3>
-<button onclick="timer('g2',40)">Start</button>
-<div class="timer" id="t-g2"></div>
-<button onclick="done('g2')">Complete</button>
-</div>
-</div>
-
+<div class="card" id="g1"><iframe src="https://www.youtube.com/embed/gRVjAtPip0Y"></iframe><div class="card-content"><span class="badge">Gym</span><h3>Bench Press</h3><button onclick="done('g1')">Done</button></div></div>
+<div class="card" id="g2"><iframe src="https://www.youtube.com/embed/op9kVnSso6Q"></iframe><div class="card-content"><span class="badge">Gym</span><h3>Deadlift</h3><button onclick="done('g2')">Done</button></div></div>
 </div>
 </section>
 
-<footer>
-<p>ALPHA Training System</p>
-</footer>
-
 <script>
-function timer(id,s){
-let t=s;
-let el=document.getElementById('t-'+id);
-let i=setInterval(()=>{
-el.innerText=t+'s';t--;
-if(t<0){clearInterval(i);el.innerText='Done';}
-},1000);
+function login(){
+let u=document.getElementById('user').value;
+if(u){localStorage.setItem('user',u);document.getElementById('login').style.display='none'}
 }
+if(localStorage.getItem('user'))document.getElementById('login').style.display='none';
+
+const list=['p1','p2','pl1','l1','g1','g2'];
 
 function done(id){
 localStorage.setItem(id,'1');
 document.getElementById(id).classList.add('completed');
+update();
+}
+
+function update(){
+let c=0;
+list.forEach(i=>{if(localStorage.getItem(i))c++});
+let pct=Math.floor((c/list.length)*100);
+document.getElementById('progress').style.width=pct+'%';
+document.getElementById('percent').innerText=pct+'% complete';
 }
 
 window.onload=()=>{
-['h1','h2','g1','g2'].forEach(id=>{
-if(localStorage.getItem(id)){
-document.getElementById(id).classList.add('completed');
-}
-});
+list.forEach(i=>{if(localStorage.getItem(i))document.getElementById(i).classList.add('completed')});
+update();
 }
 </script>
 
