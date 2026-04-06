@@ -3,115 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALPHA FIT</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+<title>ALPHA</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body {margin:0;font-family:'Montserrat',sans-serif;color:white;background:url('https://images.unsplash.com/photo-1546182990-dffeafbe841d') no-repeat center center/cover;}
-.overlay {background:rgba(0,0,0,0.85);min-height:100vh;}
-header {padding:20px;text-align:center;border-bottom:2px solid #ff3131;}
-header h1 {font-size:38px;color:#ff3131;letter-spacing:3px;}
-nav {display:flex;justify-content:center;gap:25px;margin-top:10px;}
-nav a {color:white;text-decoration:none;font-weight:600;}
-.hero {text-align:center;padding:60px;}
-.hero h2 {font-size:34px;color:#ff3131;}
-.section {padding:40px;}
-.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
-.card {background:#111;border-radius:15px;padding:20px;box-shadow:0 0 10px rgba(255,0,0,0.4);}
-.card h3 {color:#ff3131;}
-button {background:#ff3131;border:none;color:white;padding:10px 15px;margin-top:10px;cursor:pointer;border-radius:5px;}
-.timer {margin-top:10px;}
-.completed {border:2px solid lime;}
-footer {text-align:center;padding:20px;background:#0a0a0a;margin-top:20px;}
+body {margin:0;font-family:'Montserrat',sans-serif;background:#0b0b0b;color:white;}
+header {display:flex;justify-content:space-between;align-items:center;padding:15px 30px;background:#111;}
+header h1 {color:#ff2a2a;font-size:26px;}
+nav a {color:white;margin:0 10px;text-decoration:none;font-size:14px;}
+.hero {padding:60px 30px;background:linear-gradient(180deg,#1a0000,#000);}
+.hero h2 {color:#ff2a2a;font-size:32px;}
+.section {padding:30px;}
+.grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.card {background:#121212;border-radius:12px;overflow:hidden;}
+.card iframe {width:100%;height:180px;border:none;}
+.card-content {padding:15px;}
+.card h3 {margin:0;color:#ff2a2a;}
+.badge {display:inline-block;background:#ff2a2a;padding:3px 8px;font-size:12px;border-radius:4px;margin-bottom:8px;}
+button {width:100%;margin-top:10px;padding:10px;border:none;background:#ff2a2a;color:white;border-radius:6px;cursor:pointer;}
+.timer {text-align:center;margin-top:8px;font-size:14px;}
+.completed {outline:2px solid #00ff88;}
+footer {text-align:center;padding:20px;background:#111;color:#aaa;}
 </style>
 </head>
 <body>
-<div class="overlay">
 
 <header>
-<h1>ALPHA FIT</h1>
+<h1>ALPHA</h1>
 <nav>
 <a href="#home">Home</a>
-<a href="#homework">Home Workout</a>
-<a href="#gymwork">Gym Workout</a>
+<a href="#homework">Home</a>
+<a href="#gym">Gym</a>
 </nav>
 </header>
 
 <section class="hero" id="home">
-<h2>Train Anywhere. Become ALPHA.</h2>
-<p>Full body workouts at home and gym</p>
+<h2>Full Body Training</h2>
+<p>Clean. Powerful. Focused.</p>
 </section>
 
 <section class="section" id="homework">
-<h2>🏠 Home Workout (Full Body)</h2>
-<div class="cards">
-<div class="card" id="home1">
+<h2>Home Workout</h2>
+<div class="grid">
+
+<div class="card" id="h1">
+<iframe src="https://www.youtube.com/embed/IODxDxX7oi4"></iframe>
+<div class="card-content">
+<span class="badge">Chest</span>
 <h3>Push Ups</h3>
-<p>Chest, shoulders, triceps</p>
-<iframe width="100%" height="150" src="https://www.youtube.com/embed/IODxDxX7oi4"></iframe>
-<button onclick="startTimer('home1',30)">Start 30s</button>
-<div class="timer" id="timer-home1"></div>
-<button onclick="complete('home1')">Complete</button>
+<button onclick="timer('h1',30)">Start</button>
+<div class="timer" id="t-h1"></div>
+<button onclick="done('h1')">Complete</button>
+</div>
 </div>
 
-<div class="card" id="home2">
+<div class="card" id="h2">
+<iframe src="https://www.youtube.com/embed/pSHjTRCQxIw"></iframe>
+<div class="card-content">
+<span class="badge">Core</span>
 <h3>Plank</h3>
-<p>Core</p>
-<iframe width="100%" height="150" src="https://www.youtube.com/embed/pSHjTRCQxIw"></iframe>
-<button onclick="startTimer('home2',30)">Start 30s</button>
-<div class="timer" id="timer-home2"></div>
-<button onclick="complete('home2')">Complete</button>
+<button onclick="timer('h2',30)">Start</button>
+<div class="timer" id="t-h2"></div>
+<button onclick="done('h2')">Complete</button>
 </div>
+</div>
+
 </div>
 </section>
 
-<section class="section" id="gymwork">
-<h2>🏋️ Gym Workout (Full Body)</h2>
-<div class="cards">
-<div class="card" id="gym1">
+<section class="section" id="gym">
+<h2>Gym Workout</h2>
+<div class="grid">
+
+<div class="card" id="g1">
+<iframe src="https://www.youtube.com/embed/gRVjAtPip0Y"></iframe>
+<div class="card-content">
+<span class="badge">Chest</span>
 <h3>Bench Press</h3>
-<p>Chest</p>
-<iframe width="100%" height="150" src="https://www.youtube.com/embed/gRVjAtPip0Y"></iframe>
-<button onclick="startTimer('gym1',40)">Start 40s</button>
-<div class="timer" id="timer-gym1"></div>
-<button onclick="complete('gym1')">Complete</button>
+<button onclick="timer('g1',40)">Start</button>
+<div class="timer" id="t-g1"></div>
+<button onclick="done('g1')">Complete</button>
+</div>
 </div>
 
-<div class="card" id="gym2">
+<div class="card" id="g2">
+<iframe src="https://www.youtube.com/embed/op9kVnSso6Q"></iframe>
+<div class="card-content">
+<span class="badge">Full Body</span>
 <h3>Deadlift</h3>
-<p>Full body</p>
-<iframe width="100%" height="150" src="https://www.youtube.com/embed/op9kVnSso6Q"></iframe>
-<button onclick="startTimer('gym2',40)">Start 40s</button>
-<div class="timer" id="timer-gym2"></div>
-<button onclick="complete('gym2')">Complete</button>
+<button onclick="timer('g2',40)">Start</button>
+<div class="timer" id="t-g2"></div>
+<button onclick="done('g2')">Complete</button>
 </div>
+</div>
+
 </div>
 </section>
 
 <footer>
-<p>© 2026 ALPHA FIT</p>
+<p>ALPHA Training System</p>
 </footer>
 
-</div>
-
 <script>
-function startTimer(id,sec){
-let t=sec;
-let el=document.getElementById('timer-'+id);
-let int=setInterval(()=>{
-el.innerText='Time: '+t+'s';
-t--;
-if(t<0){clearInterval(int);el.innerText='Done ✔';}
+function timer(id,s){
+let t=s;
+let el=document.getElementById('t-'+id);
+let i=setInterval(()=>{
+el.innerText=t+'s';t--;
+if(t<0){clearInterval(i);el.innerText='Done';}
 },1000);
 }
 
-function complete(id){
-localStorage.setItem(id,'done');
+function done(id){
+localStorage.setItem(id,'1');
 document.getElementById(id).classList.add('completed');
 }
 
 window.onload=()=>{
-['home1','home2','gym1','gym2'].forEach(id=>{
-if(localStorage.getItem(id)==='done'){
+['h1','h2','g1','g2'].forEach(id=>{
+if(localStorage.getItem(id)){
 document.getElementById(id).classList.add('completed');
 }
 });
